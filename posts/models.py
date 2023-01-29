@@ -49,5 +49,3 @@ class Follow(models.Model):
         related_name='following',
         verbose_name='Автор'
     )
-    # возьму на заметку:
-    # у меня валидация unique together на уровне сериализатора есть

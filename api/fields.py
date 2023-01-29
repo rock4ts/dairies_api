@@ -10,7 +10,7 @@ from rest_framework import serializers
 
 class Base64ImageField(serializers.ImageField):
     '''
-    Customisez 'to_internal_value' function
+    Customizes 'to_internal_value' function
     to decode base64 image strings into files.
     Returns image file address for GET requests.
     '''
