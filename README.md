@@ -65,7 +65,7 @@ python3 manage.py runserver
 
 Для доступа к созданию, редактированию или удалению объектов необходимо создать учётную запись и авторизоваться.
 
-Чтобы зарегистрировать нового пользователя отправьте 'POST' запрос по нижеуказанному адресу, в теле запроса в формате JSON укажите параметры "username" и "password":  
+Чтобы зарегистрировать нового пользователя, отправьте 'POST' запрос по указанному адресу, в теле запроса в формате JSON укажите параметры "username" и "password":  
 
 ```
 http://127.0.0.1:8000/api/v1/users/
@@ -108,7 +108,7 @@ http://127.0.0.1:8000/api/v1/jwt/create/
 }
 ```
 <br>
-Готово! Передавайте полученный токен в заголовке каждого запроса к API в формате "ключ: токен". Например:
+Готово! Передавайте полученный токен в заголовке каждого запроса к API в формате "ключ: токен":
 ```
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzOTI2MDc0LCJqdGkiOiJmMTU3MzAxMGZhNjk0ZmNiOTI1ZTA0NmI3ZGNlNjA4OCIsInVzZXJfaWQiOjF9.IjyppcUSfKzBWlivZo0DZPlZ7JAkpkOMVeBMQPxH
 ```
