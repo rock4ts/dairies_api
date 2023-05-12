@@ -112,6 +112,7 @@ http://127.0.0.1:8000/api/v1/jwt/create/
 ```
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzOTI2MDc0LCJqdGkiOiJmMTU3MzAxMGZhNjk0ZmNiOTI1ZTA0NmI3ZGNlNjA4OCIsInVzZXJfaWQiOjF9.IjyppcUSfKzBWlivZo0DZPlZ7JAkpkOMVeBMQPxH
 ```
+
 **Обратите внимание, что перед токеном должно стоять ключевое слово Bearer и пробел.** В противном случае авторизация не пройдёт и API вернёт ошибку доступа.
 
 
