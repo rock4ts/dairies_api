@@ -115,6 +115,12 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 **Обратите внимание, что перед токеном должно стоять ключевое слово Bearer и пробел.** В противном случае авторизация не пройдёт и API вернёт ошибку доступа.
 
 
+Готово! Передавайте полученный токен в заголовке каждого запроса к API в формате "ключ: токен". Например:
+```
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzOTI2MDc0LCJqdGkiOiJmMTU3MzAxMGZhNjk0ZmNiOTI1ZTA0NmI3ZGNlNjA4OCIsInVzZXJfaWQiOjF9.IjyppcUSfKzBWlivZo0DZPlZ7JAkpkOMVeBMQPxH
+```
+**Обратите внимание, что перед токеном должно стоять ключевое слово Bearer и пробел.** В противном случае авторизация не пройдёт и API вернёт ошибку доступа.
+
 ## Права доступа
 
 Неавторизованные пользователи имеют права наблюдателя, им доступен лишь просмотр групп, публикаций и комментариев.
