@@ -8,29 +8,40 @@ from .fields import Base64ImageField
 
 class PostSerializer(serializers.ModelSerializer):
     author = SlugRelatedField(slug_field='username', read_only=True)
-    image = Base64ImageField(required=False, allow_null=True)
+    group = SlugRelatedField(
+        slug_field='title',
+        queryset=Group.objects.all(),
+        required=False
+    )
+    image = Base64ImageField(required=False)
 
     class Meta:
         model = Post
         fields = '__all__'
 
+    def update(self, instance, validated_data):
+        for field_name, value in validated_data.items():
+            setattr(instance, field_name, value)
+        instance.save()
+        return instance
+
 
 class CommentSerializer(serializers.ModelSerializer):
     author = SlugRelatedField(
-        read_only=True, slug_field='username'
+        slug_field='username', read_only=True,
     )
 
     class Meta:
         model = Comment
         fields = '__all__'
-        read_only_fields = ('author', 'post',)
+        read_only_fields = ('post',)
 
 
 class GroupSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Group
-        fields = '__all__'
+        exclude = ('created_by',)
 
 
 class FollowSerializer(serializers.ModelSerializer):
