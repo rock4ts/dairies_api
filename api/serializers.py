@@ -1,4 +1,6 @@
+from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 from rest_framework.relations import SlugRelatedField
 from rest_framework.validators import UniqueTogetherValidator
 
@@ -35,6 +37,13 @@ class CommentSerializer(serializers.ModelSerializer):
         model = Comment
         fields = '__all__'
         read_only_fields = ('post',)
+
+    def validate(self, attrs):
+        try:
+            Post.objects.get(pk=self.context.get('post_id'))
+        except ObjectDoesNotExist:
+            raise ValidationError('Публикации с данным id не существует')
+        return super().validate(attrs)
 
 
 class GroupSerializer(serializers.ModelSerializer):
