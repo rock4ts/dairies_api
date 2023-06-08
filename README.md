@@ -17,60 +17,6 @@ ___
 * Django 2.2.16
 * Django REST framework 3.12.4
 ___
-## Начало работы
-
-Для доступа к созданию, редактированию или удалению объектов необходимо создать учётную запись и авторизоваться.
-
-Чтобы зарегистрировать нового пользователя, отправьте 'POST' запрос по указанному адресу, в теле запроса в формате JSON укажите параметры "username" и "password":  
-
-```
-http://127.0.0.1:8000/api/v1/users/
-```
-Пример тела запроса:
-```
-{
-    "username": "rock4ts",
-    "password": "r4ndompa$$w0rd"
-}
-```
-Ответ успешной регистрации имеет статус `201 Created`, в теле ответа содержатся данные нового пользователя, например:
-```
-{
-    "email": "",
-    "username": "rock4ts",
-    "id": 1
-}
-```
-
-Теперь можно получить токен авторизации JWT, отправьте 'POST' запрос, согласно инструкции.
-Адрес для получения JWT-токена:
-```
-http://127.0.0.1:8000/api/v1/jwt/create/
-```
-Пример тела запроса:
-```
-{
-    "username": "rock4ts",
-    "password": "r4ndompa$$w0rd"
-}
-```
-
-При выполнении запроса API вернёт токен в поле access, а данные из поля refresh пригодятся для обновления токена.
-Пример ответа с JWT-токеном:
-```
-{
-    "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY2MzY2Njg3NCwianRpIjoiNWE0ZjIwMGQxN2RmNDBhMGJkY2JmN2YyYTRjYTE0MTQiLCJ1c2VyX2lkIjoxfQ.SzIFfzaC1wxIuwrH1kE-91Uu0b0yWqrW7Pg38i",
-    "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzOTI2MDc0LCJqdGkiOiJmMTU3MzAxMGZhNjk0ZmNiOTI1ZTA0NmI3ZGNlNjA4OCIsInVzZXJfaWQiOjF9.IjyppcUSfKzBWlivZo0DZPlZ7JAkpkOMVeBMQPxH"
-}
-```
-<br>
-
-Готово! Передавайте полученный токен в заголовке каждого запроса к API в формате "ключ: токен". Пример:
-```
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzOTI2MDc0LCJqdGkiOiJmMTU3MzAxMGZhNjk0ZmNiOTI1ZTA0NmI3ZGNlNjA4OCIsInVzZXJfaWQiOjF9.IjyppcUSfKzBWlivZo0DZPlZ7JAkpkOMVeBMQPxH
-```
-**Обратите внимание, что перед токеном должно стоять ключевое слово Bearer и пробел.** В противном случае авторизация не пройдёт и API вернёт ошибку доступа.
-___
 
 ## Ресурсы API
 
@@ -161,4 +107,57 @@ python3 manage.py runserver
 ```
 ___
 
-**Приятного пользования!**
+## Начало работы
+
+Для доступа к созданию, редактированию или удалению объектов необходимо создать учётную запись и авторизоваться.
+
+Чтобы зарегистрировать нового пользователя, отправьте 'POST' запрос по указанному адресу, в теле запроса в формате JSON укажите параметры "username" и "password":  
+
+```
+http://127.0.0.1:8000/api/v1/users/
+```
+Пример тела запроса:
+```
+{
+    "username": "rock4ts",
+    "password": "r4ndompa$$w0rd"
+}
+```
+Ответ успешной регистрации имеет статус `201 Created`, в теле ответа содержатся данные нового пользователя, например:
+```
+{
+    "email": "",
+    "username": "rock4ts",
+    "id": 1
+}
+```
+
+Теперь можно получить токен авторизации JWT, отправьте 'POST' запрос, согласно инструкции.
+Адрес для получения JWT-токена:
+```
+http://127.0.0.1:8000/api/v1/jwt/create/
+```
+Пример тела запроса:
+```
+{
+    "username": "rock4ts",
+    "password": "r4ndompa$$w0rd"
+}
+```
+
+При выполнении запроса API вернёт токен в поле access, а данные из поля refresh пригодятся для обновления токена.
+Пример ответа с JWT-токеном:
+```
+{
+    "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY2MzY2Njg3NCwianRpIjoiNWE0ZjIwMGQxN2RmNDBhMGJkY2JmN2YyYTRjYTE0MTQiLCJ1c2VyX2lkIjoxfQ.SzIFfzaC1wxIuwrH1kE-91Uu0b0yWqrW7Pg38i",
+    "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzOTI2MDc0LCJqdGkiOiJmMTU3MzAxMGZhNjk0ZmNiOTI1ZTA0NmI3ZGNlNjA4OCIsInVzZXJfaWQiOjF9.IjyppcUSfKzBWlivZo0DZPlZ7JAkpkOMVeBMQPxH"
+}
+```
+<br>
+
+Готово! Передавайте полученный токен в заголовке каждого запроса к API в формате "ключ: токен". Пример:
+```
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzOTI2MDc0LCJqdGkiOiJmMTU3MzAxMGZhNjk0ZmNiOTI1ZTA0NmI3ZGNlNjA4OCIsInVzZXJfaWQiOjF9.IjyppcUSfKzBWlivZo0DZPlZ7JAkpkOMVeBMQPxH
+```
+**Обратите внимание, что перед токеном должно стоять ключевое слово Bearer и пробел.** В противном случае авторизация не пройдёт и API вернёт ошибку доступа.
+
