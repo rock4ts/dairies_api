@@ -17,65 +17,6 @@ ___
 * Django 2.2.16
 * Django REST framework 3.12.4
 ___
-
-## Запуск проекта локально
-
-*Для запуска проекта потребуется установленный Python версии 3.7 и выше.*
-
-**Создайте папку с названием проекта и инициализируйте репозиторий:**
-```bash
-mkdir dairies_api
-```
-```bash
-cd dairies_api
-```
-```bash
-git init
-```
-___
-
-**Клонируйте репозиторий:**
-```bash
-git clone https://github.com/rock4ts/dairies_api
-```
-___
-
-**Создайте и активируйте виртуальное окружение:**
-```python
-python3 -m venv venv
-```
-```python
-source venv/bin/activate
-```
-```python
-python3 -m pip install --upgrade pip
-```
-___
-
-**Установите записимости из файла requirements.txt:**
-```python
-pip install -r requirements.txt 
-```
-___
-
-**Выполните миграции:**
-```python
-python3 manage.py migrate
-```
-___
-
-**Создайте суперпользователя для управления проектом через админ-зону:**
-```python
-python manage.py createsuperuser
-```
-___
-
-**Запустите проект:**
-```python
-python3 manage.py runserver
-```
-___
-
 ## Начало работы
 
 Для доступа к созданию, редактированию или удалению объектов необходимо создать учётную запись и авторизоваться.
@@ -159,6 +100,64 @@ http://127.0.0.1:8000/redoc/
 Документация в формате swagger:
 ```
 http://127.0.0.1:8000/swagger/
+```
+___
+
+## Запуск проекта локально
+
+*Для запуска проекта потребуется установленный Python версии 3.7 и выше.*
+
+**Создайте папку с названием проекта и инициализируйте репозиторий:**
+```bash
+mkdir dairies_api
+```
+```bash
+cd dairies_api
+```
+```bash
+git init
+```
+___
+
+**Клонируйте репозиторий:**
+```bash
+git clone https://github.com/rock4ts/dairies_api
+```
+___
+
+**Создайте и активируйте виртуальное окружение:**
+```python
+python3 -m venv venv
+```
+```python
+source venv/bin/activate
+```
+```python
+python3 -m pip install --upgrade pip
+```
+___
+
+**Установите записимости из файла requirements.txt:**
+```python
+pip install -r requirements.txt 
+```
+___
+
+**Выполните миграции:**
+```python
+python3 manage.py migrate
+```
+___
+
+**Создайте суперпользователя для управления проектом через админ-зону:**
+```python
+python manage.py createsuperuser
+```
+___
+
+**Запустите проект:**
+```python
+python3 manage.py runserver
 ```
 ___
 
