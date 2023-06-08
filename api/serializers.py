@@ -77,6 +77,6 @@ class FollowSerializer(serializers.ModelSerializer):
     def validate(self, data):
         if self.context['request'].user == data['following']:
             raise serializers.ValidationError(
-                'Impossible to subscribe to youself!'
+                'Функция подписки на себя не предусмотрена!'
             )
         return data
